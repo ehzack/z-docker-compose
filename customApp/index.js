@@ -3,6 +3,9 @@ const path = require("path");
 
 const app = express();
 
+app.get("*", function (req, res) {
+  res.send("Hello");
+});
 app.get("/button", function (req, res) {
   res.sendFile(path.join(__dirname + "/button.js"));
 });
