@@ -1,0 +1,125 @@
+version: "3.6"
+services:
+  postgres:
+    image: postgres:12
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: test123
+    # networks:
+    # - postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "8002:80"
+    ## you can change pgAdmin default username/password with below environment variables
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    #networks:
+    #  - postgres
+
+  graphql-engine:
+    image: hasura/graphql-engine:v1.1.1
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "postgres"
+    restart: always
+    environment:
+      HASURA_GRAPHQL_JWT_SECRET: '{"type": "HS512", "key": "bd31f9a41abc32ecf1139095bf2dc0eba6c7a8cdd974fafc1ac99bd31f9a41abc32ecf1139095bf2dc0eba6c7a8cdd974fafc1ac99bd31f9a41abc32ecf1139095bf2dc0eba6c7a8cdd974fafc1ac99"}'
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:test123@postgres:5432/postgres
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      HASURA_GRAPHQL_ADMIN_SECRET: test123
+
+  hasura-backend-plus:
+    image: test/hasura-auth:latest
+    ports:
+      - "3050:3050"
+    environment:
+      PORT: 3050
+      AUTH_ACTIVE: "true"
+      AUTH_LOCAL_ACTIVE: "true"
+      USER_FIELDS: ""
+      USER_REGISTRATION_AUTO_ACTIVE: "true"
+      HASURA_GRAPHQL_ENDPOINT: https://database.test.com/v1/graphql
+      HASURA_GRAPHQL_ADMIN_SECRET: test123
+      HASURA_GRAPHQL_JWT_SECRET: '{"type": "HS256", "key": "bd31f9a41abc32ecf1139095bf2dc0eba6c7a8cdd974fafc1ac9979c7dc904cf3ed352890c6d1f6227034af8138dda539218bf7e12405486ae69d8010ec63722"}'
+      S3_ACCESS_KEY_ID: test
+      S3_SECRET_ACCESS_KEY: test123
+      S3_ENDPOINT: "https://storage.test.com"
+      S3_BUCKET: hbtest
+      DOMAIN: localhost
+      REFRESH_TOKEN_EXPIRES: 43200
+      JWT_TOKEN_EXPIRES: 480
+      SMPT_AUTH_USER: "test@gmail.com"
+      SMPT_AUTH_PASS: "test@test"
+      FromEmail: "info@fadaaalouloume.com"
+    volumes:
+      - ./storage-rules:/app/src/storage/rules
+
+  api1:
+    image: test/api1:latest
+    ports:
+      - "3002:3002"
+
+    environment:
+      PORT: 3002
+      HASURA_GRAPHQL_ENDPOINT: https://database.test.com/v1/graphql
+      HASURA_GRAPHQL_ADMIN_SECRET: test123
+
+  api2:
+    image: test/api2:latest
+    ports:
+      - "3001:3001"
+
+    environment:
+      PORT: 3001
+      SMPT_AUTH_USER: "test@gmail.com"
+      SMPT_AUTH_PASS: "test@test"
+      FromEmail: "info@test.com"
+
+  caddy:
+    image: abiosoft/caddy:0.11.0
+    depends_on:
+      - "graphql-engine"
+      - "hasura-backend-plus"
+      - "minio"
+      - "pgadmin"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/Caddyfile
+      - caddy_certs:/root/.caddy
+      - ./build:/var/www/html
+
+  minio:
+    image: minio/minio
+    restart: always
+    volumes:
+      - "./minio_volume/data:/export"
+      - "./minio_volume/config:/root/.minio"
+    ports:
+      - 9000:9000
+    environment:
+      MINIO_ACCESS_KEY: test
+      MINIO_SECRET_KEY: test123
+      S3_BUCKET: hbtest
+    entrypoint: sh
+    command: "-c 'mkdir -p /export/$${S3_BUCKET} && /usr/bin/minio server /export'"
+
+volumes:
+  db_data:
+  pgadmin:
+  caddy_certs:
