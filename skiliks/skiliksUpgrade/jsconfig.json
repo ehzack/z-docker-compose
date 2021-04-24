@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["es5", "es6", "es7"],
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "checkJs": true,
+    "jsx": "react-native",
+    "baseUrl": ".",
+    "paths": {
+      "module/*": ["./src/modules/*"],
+      "view/*": ["./src/view/*"],
+      "config/*": ["./src/config/*"],
+      "sercurity/*": ["./src/sercurity/*"],
+      "i18n/*": ["./src/i18n/*"],
+      "navigation/*": ["./src/navigation/*"],
+      "appStyle/*": ["./native-base-theme/*"],
+      "assets/*": ["./assets/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

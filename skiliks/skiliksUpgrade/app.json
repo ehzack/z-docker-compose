@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Skiliks",
+    "slug": "Skiliks",
+    "privacy": "public",
+    "scheme": "skiliks",
+    "ios": {
+      "bundleIdentifier": "com.skiliks.skiliks",
+      "buildNumber": "1.0.0",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.skiliks.skiliks",
+      "versionCode": 1
+    },
+    "platforms": ["ios", "android", "web"],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/LogoExpo.png",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": ["js", "jsx", "svg", "ts", "tsx"]
+    }
+  }
+}

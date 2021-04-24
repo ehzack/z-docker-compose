@@ -1,0 +1,406 @@
+{
+  "appName": "Skiliks",
+
+  "navigation": {
+    "home": "Acceuil",
+    "notif": "Actualités",
+    "profile": "Profil",
+    "menu": "Menu",
+    "chat": "Inbox",
+    "common": {
+      "backTo": "Retour à "
+    },
+    "fields": {
+      "preferences": "Préférences"
+    }
+  },
+  "common": {
+    "or": "ou",
+    "getstarted": "Démarrer",
+    "next": "Suivant",
+    "cancel": "Annuler",
+    "send": "Envoyer",
+    "add": "Ajouter",
+    "resetHere": "Réinitialiser ici",
+    "reset": "Réinitialiser",
+    "save": "Sauvegarder",
+    "backTo": "Retour à",
+    "back": "Retour",
+    "search": "Rechercher",
+    "edit": "Modifier",
+    "publish": "Publier",
+    "closing": "Clôture",
+    "duplicate": "Dupliquer",
+    "archive": "Archive",
+    "cancelPub": "Annuler la publication",
+    "remove": "Supprimer",
+    "new": "Nouveau",
+    "yes": "Oui",
+    "no": "Non",
+    "pause": "Pause",
+    "areYouSure": "Êtes-vous sûr?",
+    "view": "Voir",
+    "destroy": "Détruire",
+    "isTyping": "ecrire ..."
+  },
+  "welcome": {
+    "welcomeTo": "Bienvenue a",
+    "lookingFor": "Que cherchez-vous?",
+    "lookingForProfile": "Je cherche à embaucher les meilleurs profils",
+    "lookingForProfileText": "Search profiles by Skilles and match with the ones thatintrests you the most.",
+    "lookingForProfilearea": "Looking for profile  in your erea ... ",
+
+    "lookingForJob": "Je suis à la recherche des meilleurs opportunités d'emploi",
+    "lookingForJobText": "  Search profiles by Skilles and match with the ones that intrests you the most.",
+    "lookingForJobarea": "Looking for job offers in your erea ... ",
+    "youcanChangeIt": "Vous pouvez toujours changer cela dans vos paramètres plus tard",
+    "onBording": " In euismod orci vestibulum dolor. Sed diam sit porttitor sodales amet etiam purus, dui. Id cursus vitae ac eget"
+  },
+
+  "user": {
+    "fields": {
+      "id": "Id",
+      "authenticationUid": "Uid d'authentification",
+      "avatars_url": "Avatar",
+      "email": "Adresse électronique",
+      "fullName": "Nom complet",
+      "username": "Nom d'utilisateur",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "status": "Statut",
+      "disabled": "Désactivé ?",
+      "phoneNumber": "Numéro de téléphone",
+      "role": "Rôle",
+      "created_at": "Crée le",
+      "updatedAt": "Mise à jour le",
+      "roleUser": "Rôle utilisateur",
+      "roles": "Rôles",
+      "createdAtRange": "Crée le",
+      "password": "Mot de passe",
+      "updatePassword": "Modifie Le Mot de passe",
+      "editAccount": "Modifie Mon Compte",
+      "area_code": "Indice pays",
+      "newpassword": "Nouveau Mot de passe",
+      "confirmPassword": "Confirmation de mot de passe",
+      "currentPassword": "Current Password",
+
+      "profilePicture": "Image de profile",
+      "generalInformation": "Information Générale",
+      "genderTitle": "Gender",
+
+      "gender": {
+        "male": "Homme",
+        "female": "Femme"
+      },
+      "rememberMe": "Se souvenir de moi",
+      "language": "Langue",
+      "timezone": "Fuseau horaire",
+      "placeholder": {
+        "timezone": "Sélectionnez un fuseau horaire"
+      }
+    },
+    "notification": {
+      "emptyData": "Votre boîte de notifications est vide"
+    },
+    "chat": {
+      "emptyData": "Votre boîte d'inbox est vide"
+    },
+    "candidat": {
+      "navigation": {
+        "home": "Home",
+        "notif": "News",
+        "profile": "Profile",
+        "parameteres": "Paramètres",
+        "chat": "Inbox"
+      },
+      "setupProfile": {
+        "setupProfile": "Commençon par établir votre profil"
+      },
+      "fields": {
+        "generalInformation": "Information Générale",
+        "account": "Compte",
+        "profile": "Profil",
+        "work_years_number": "Années d'expérience professionnelle",
+        "study_level": "Années d'études",
+        "experiences": "Expériences",
+        "preferences": "Préférences",
+        "skills": "Compétences",
+        "salary": "Salaire",
+        "currency": "Monnaie",
+        "availability": "Disponibilité",
+        "localizations": "Localisations",
+        "contractType": "Types de contrat",
+        "notification": "Notification",
+        "languages": "Langues",
+        "chat": "Chat",
+        "discussion": "Discussion",
+        "bio": "bio",
+        "title": "Titre",
+        "jobs": "Emplois"
+      },
+      "common": {
+        "addSkills": "Ajouter Compétence",
+        "addContractType": "Ajouter un type de contrat",
+        "addlocalizations": "Ajouter un lieu",
+        "addLanguage": "Ajouter une langue",
+        "settingNotification": "Réglage de notification",
+        "emptyMatch": "nous n'avons trouvé aucune offre d'emploi dans votre région, essayez de chercher plus tard ou modifiez vos paramètres de recherche dans les paramètres"
+      },
+      "messages": {
+        "skills": {
+          "success": "Les Competence sont-ils modifié ",
+          "error": "Probleme au niveau de modification des competences"
+        },
+        "locations": {
+          "success": "Les localisations sont-ils modifié ",
+          "error": "Probleme au niveau de modification de localisations"
+        },
+        "contractTypeSalary": {
+          "success": "Le salaire et les type de contrat sont-ils modifié ",
+          "error": "Probleme au niveau de modification de salaire ou de contrat"
+        },
+        "languages": {
+          "success": "Les langues  sont-ils modifié ",
+          "error": "Probleme au niveau de modification  des langues"
+        }
+      },
+      "alert": {
+        "profileSaved": "Profile a été modifie"
+      },
+      "chat": {
+        "title": "Boîte de réception",
+        "newMatches": "Nouvelles correspondances",
+        "emptyMatches": "Aucune correspondances",
+
+        "message": "Message ...",
+        "emptyChat": "aucune conversation"
+      },
+      "news": {
+        "title": "NOTIFICATION",
+        "today": "Aujourd'hui",
+        "earlie": "Précédemment"
+      },
+      "home": {
+        "title": "NOTIFICATION",
+        "today": "Aujourd'hui",
+        "earlie": "Précédemment"
+      },
+      "menu": {
+        "profileCompletition": "Complétion du profil",
+        "profileViews": "Vues de profil",
+        "preferences": {
+          "skills": {
+            "title": "Compétences",
+            "subTitle": "Mes meilleures compétences sont..."
+          },
+          "searchLocations": {
+            "title": "Lieux de recherche",
+            "subTitle": "Je veux chercher un emploi dans..."
+          },
+          "contractSalary": {
+            "title": "Contrat et salaire",
+            "subTitle": "Je veux chercher un emploi avec..."
+          },
+          "spokenLanguages": {
+            "title": "Langues parlées",
+            "subTitle": "Je parle ... "
+          },
+          "salary": {
+            "title": "Salaire",
+            "subTitle": "Je suis à la recherche des emplois à partir... "
+          },
+          "setting": {
+            "title": "Paramétres",
+
+            "notification": {
+              "newMatches": "Nouvelles correspondances",
+              "emptyMatches": "Aucune correspondances",
+
+              "messages": "Messages"
+            },
+            "legalOption": {
+              "legal": "Légal",
+              "contactUs": "Contactez-nous"
+            }
+          }
+        }
+      }
+    },
+    "recruiter": {
+      "navigation": {
+        "home": "Home",
+        "notif": "News",
+        "jobs": "jobs",
+        "menu": "Menu",
+        "chat": "Inbox",
+        "setting": "setting",
+        "profile": "Profile"
+      },
+      "menu": {
+        "preferences": {
+          "myJobOffers": "Mes Annonces",
+          "setting": "Paramétres"
+        }
+      },
+      "offer": {
+        "title": {
+          "createOffer": "Nouvelle offre"
+        },
+        "common": {
+          "addOffer": "l'offre a été ajouter",
+          "editOffer": "l'offre a été modifier",
+          "disableOffer": "Publiée l'offre",
+          "archiveOffer": "Clôturer l'offre",
+          "deleteOffer": "Supprimer l'offre",
+          "createOffer": "Créer une nouvelle offre",
+          "updateOffer": "Modifiée l'offre",
+          "duplicateOffer": "Dupliquer l'offer",
+          "emptyMatch": "nous n'avons trouvé aucun candidat dans votre région, essayez de chercher plus tard ou modifiez vos paramètres de recherche dans les paramètres",
+          "emptyOffers": "votre boîte d'offres d'emploi est vide"
+        },
+        "status": {
+          "CLO": "Clôturer",
+          "ARC": "Archiver",
+          "PUB": "Publier",
+          "DRA": "Brouillon"
+        },
+        "fields": {
+          "title": "Title",
+          "description": "Description",
+          "study_level": "Niveau Scolaire",
+          "localizations": "emplacement",
+          "work_years_experience": "Expoerience",
+          "required_skills": " Competance requises",
+          "preferred_skills": "Compétences préférées",
+          "availability": "Disponibilité",
+          "contract_types": "Types de contrat",
+          "company_name": "Nom de l'entreprise",
+          "gender": "Sexe",
+          "languages": "Langues",
+          "enumerators": {
+            "gender": {
+              "male": "Homme",
+              "female": "Femme",
+              "both": "Les Deux"
+            }
+          }
+        }
+      },
+      "fields": {
+        "company_name": "Nom de l'entreprise",
+        "activity_area": "Secteur d'activité",
+        "company_type": "Type d'entreprise",
+        "company_size": "Taile de l' entreprise",
+        "localization": "emplacement",
+        "bio": "bio",
+        "website": "site d l'entreprise",
+        "expertises": "expertises"
+      }
+    }
+  },
+
+  "auth": {
+    "accountSeting": {
+      "title": "Langue & Fuseau horaire"
+    },
+
+    "activateAccount": {
+      "message": "Entrez le code qui a été envoyé à votre numéro de téléphone",
+      "resend": "Renvoyer le code"
+    },
+    "profile": {
+      "title": "Modifier le profil",
+      "success": "Profil mis à jour avec succès"
+    },
+
+    "editpassword": {
+      "titleView": "Mot de passe",
+      "title": "Mise à jour du mot de passe",
+      "subTitle": "Votre nouveau mot de passe doit être différent du mot de passe utilisateur précédent",
+      "success": "Mot de passe mis à jour avec succès",
+      "error": "Mot de passe incorrect",
+      "errornewpassword": "Les mots de passe ne sont pas les mêmes"
+    },
+    "createAnAccount": "Créer un nouveau compte!",
+    "rememberMe": "Se souvenir de moi",
+    "forgotPassword": "Mot de passe oublié",
+    "createNewPassword": "Créer un nouveau mot de passe",
+    "createNewPasswordExplain": "Votre nouveau mot de passe doit être différent du mot de passe utilisé précédemment",
+    "forgotYourPassword": "Oublié votre mot de passe?",
+    "forgotpasswordExplain": "Entrez votre adresse électronique ou votre numéro de téléphone enregistré ci-dessous pour recevoir les instructions de réinitialisation du mot de passe",
+    "entercode": "Veuillez saisir le code du numéro envoyé à votre adresse électronique ",
+    "savePassword": "Enregistrer le mot de passe",
+    "signin": "Se connecter",
+    "signinGoogle": "Se connecter avec Google",
+    "signupGoogle": "S'inscrire avec Google",
+    "logout": "Déconnexion",
+    "deleteAccount": "Supprimer le compte",
+
+    "signup": "S'inscrire",
+    "signout": "Déconnecter",
+    "checkmail": "Consultez votre courrier",
+
+    "emailUnverified": {
+      "message": "Veuillez confirmer votre courrier\"% {email} \" pour suivre.",
+      "submit": "Renvoyer la vérification du courrier électronique"
+    },
+
+    "passwordReset": {
+      "message": "Envoyer un courrier de réinitialisation du mot de passe",
+      "message1": "Renvoyer un courrier",
+      "error": "Courrier électronique non reconnu",
+      "errorCode": "Code non Valable",
+      "errorIdentical": "Les mots de passe ne sont pas les mêmes",
+      "passwordResetSuccess": "Courrier de réinitialisation du mot de passe envoyé avec succès"
+    },
+    "emailAddressVerificationEmail": {
+      "error": "Courrier électronique non reconnu"
+    },
+    "verificationEmailSuccess": "Courrier de vérification envoyé avec succès",
+    "alreadyActive": "Le compte est déjà activé",
+    "enabled": "Activé ?",
+    "disabled": "Désactivé ?",
+    "validations": {
+      "email": "L'adresse n'est pas valide"
+    },
+    "error": {
+      "invalideUser": "Utilisateur Introuvable",
+      "accountNotActivat": "Please Activate your account",
+      "alreadyUsed": "Cette adresse électronique est déjà utilisé",
+      "none": "Probleme au niveau de serveur"
+    }
+  },
+  "shared": {
+    "date": {
+      "mounth": {
+        "jan": "Jan",
+        "feb": "Fev",
+        "mar": "Mars",
+        "apr": "Avr",
+        "may": "Mai",
+        "jun": "Juin",
+        "jul": "Juill",
+        "aug": "Août",
+        "sep": "Sep",
+        "oct": "Oct",
+        "nov": "Nov",
+        "dec": "Déc"
+      },
+      "days": {
+        "sunday": "Dimanche",
+        "monday": "Lundi",
+        "tuesday": "Mardi",
+        "wednesday": "Mercredi",
+        "thursday": "Jeudi",
+        "friday": "Vendredi",
+        "saturday:": "Samedi"
+      }
+    },
+    "i18n": {
+      "en": "Anglais",
+      "fr": "Français",
+      "es": "Espagnol",
+      "info": "Vous pouvez toujours changer cela dans vos paramètres plus tard"
+    }
+  }
+}

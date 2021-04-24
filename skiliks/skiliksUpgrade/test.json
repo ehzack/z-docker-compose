@@ -1,0 +1,2114 @@
+{
+  "sources": [
+    {
+      "kind": "postgres",
+      "name": "default",
+      "tables": [
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "messages",
+                  "newMatches",
+                  "id",
+                  "language_code",
+                  "timezone_code",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": [
+                  "messages",
+                  "newMatches",
+                  "id",
+                  "language_code",
+                  "timezone_code",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "columns": [
+                  "messages",
+                  "newMatches",
+                  "id",
+                  "language_code",
+                  "timezone_code",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": {
+                    "schema": "public",
+                    "name": "dictionary_i18n"
+                  },
+                  "insertion_order": null,
+                  "column_mapping": { "language_code": "id" }
+                }
+              },
+              "name": "languagei18n"
+            },
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "dictionary" },
+                  "insertion_order": null,
+                  "column_mapping": { "timezone_code": "id" }
+                }
+              },
+              "name": "timezone"
+            },
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "users" },
+                  "insertion_order": null,
+                  "column_mapping": { "user_id": "id" }
+                }
+              },
+              "name": "user"
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "backend_only": false,
+                "set": { "user_id": "x-hasura-User-Id" },
+                "check": { "user_id": { "_eq": "X-Hasura-User-Id" } },
+                "columns": [
+                  "messages",
+                  "newMatches",
+                  "id",
+                  "language_code",
+                  "timezone_code",
+                  "user_id"
+                ]
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "backend_only": false,
+                "set": { "user_id": "x-hasura-User-Id" },
+                "check": { "user_id": { "_eq": "X-Hasura-User-Id" } },
+                "columns": [
+                  "messages",
+                  "newMatches",
+                  "id",
+                  "language_code",
+                  "timezone_code",
+                  "user_id"
+                ]
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "backend_only": false,
+                "set": { "user_id": "x-hasura-User-Id" },
+                "check": { "user_id": { "_eq": "X-Hasura-User-Id" } },
+                "columns": [
+                  "id",
+                  "user_id",
+                  "language_code",
+                  "timezone_code",
+                  "newMatches",
+                  "messages"
+                ]
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "account_setting" },
+          "update_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "check": { "user_id": { "_eq": "X-Hasura-User-Id" } },
+                "columns": [
+                  "messages",
+                  "newMatches",
+                  "id",
+                  "language_code",
+                  "timezone_code",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "check": { "user_id": { "_eq": "X-Hasura-User-Id" } },
+                "columns": [
+                  "messages",
+                  "newMatches",
+                  "id",
+                  "language_code",
+                  "timezone_code",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "check": { "user_id": { "_eq": "X-Hasura-User-Id" } },
+                "columns": [
+                  "messages",
+                  "newMatches",
+                  "id",
+                  "language_code",
+                  "timezone_code",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ]
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "availability",
+                  "closed_at",
+                  "company_logo",
+                  "company_name",
+                  "contract_types",
+                  "created_at",
+                  "description",
+                  "enabled",
+                  "gender",
+                  "id",
+                  "languages",
+                  "localizations",
+                  "preferred_skills",
+                  "published_at",
+                  "recruiter_id",
+                  "required_skills",
+                  "study_level",
+                  "title",
+                  "updated_at",
+                  "uuid",
+                  "work_years_experience"
+                ],
+                "filter": {
+                  "feeds": {
+                    "profile": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+                  }
+                }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": [
+                  "availability",
+                  "closed_at",
+                  "company_logo",
+                  "company_name",
+                  "contract_types",
+                  "created_at",
+                  "description",
+                  "enabled",
+                  "gender",
+                  "id",
+                  "languages",
+                  "localizations",
+                  "preferred_skills",
+                  "published_at",
+                  "recruiter_id",
+                  "required_skills",
+                  "study_level",
+                  "title",
+                  "updated_at",
+                  "uuid",
+                  "work_years_experience"
+                ],
+                "filter": {
+                  "recruiter": { "id": { "_eq": "X-Hasura-User-Id" } }
+                }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "dictionary" },
+                  "insertion_order": null,
+                  "column_mapping": { "study_level": "id" }
+                }
+              },
+              "name": "diploma"
+            },
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "users" },
+                  "insertion_order": null,
+                  "column_mapping": { "recruiter_id": "id" }
+                }
+              },
+              "name": "recruiter"
+            }
+          ],
+          "event_triggers": [
+            {
+              "definition": {
+                "enable_manual": false,
+                "update": { "columns": ["closed_at"] }
+              },
+              "name": "close_ad",
+              "retry_conf": {
+                "num_retries": 0,
+                "interval_sec": 10,
+                "timeout_sec": 60
+              },
+              "webhook": "http://68.183.67.65:5555/create_event"
+            },
+            {
+              "definition": {
+                "enable_manual": false,
+                "insert": { "columns": "*" }
+              },
+              "name": "new_ad",
+              "retry_conf": {
+                "num_retries": 0,
+                "interval_sec": 10,
+                "timeout_sec": 60
+              },
+              "webhook": "http://68.183.67.65:5555/create_event"
+            },
+            {
+              "definition": {
+                "enable_manual": false,
+                "update": { "columns": ["enabled", "published_at"] }
+              },
+              "name": "publish_ad",
+              "retry_conf": {
+                "num_retries": 0,
+                "interval_sec": 10,
+                "timeout_sec": 60
+              },
+              "webhook": "http://68.183.67.65:5555/create_event"
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "recruiter",
+              "permission": {
+                "backend_only": false,
+                "set": { "recruiter_id": "x-hasura-User-Id" },
+                "check": {
+                  "recruiter": { "id": { "_eq": "X-Hasura-User-Id" } }
+                },
+                "columns": [
+                  "availability",
+                  "closed_at",
+                  "company_logo",
+                  "company_name",
+                  "contract_types",
+                  "created_at",
+                  "description",
+                  "enabled",
+                  "gender",
+                  "id",
+                  "languages",
+                  "localizations",
+                  "preferred_skills",
+                  "published_at",
+                  "recruiter_id",
+                  "required_skills",
+                  "study_level",
+                  "title",
+                  "updated_at",
+                  "uuid",
+                  "work_years_experience"
+                ]
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "ad" },
+          "update_permissions": [
+            {
+              "role": "recruiter",
+              "permission": {
+                "check": null,
+                "columns": [
+                  "availability",
+                  "closed_at",
+                  "company_logo",
+                  "company_name",
+                  "contract_types",
+                  "created_at",
+                  "description",
+                  "enabled",
+                  "gender",
+                  "id",
+                  "languages",
+                  "localizations",
+                  "preferred_skills",
+                  "published_at",
+                  "recruiter_id",
+                  "required_skills",
+                  "study_level",
+                  "title",
+                  "updated_at",
+                  "uuid",
+                  "work_years_experience"
+                ],
+                "filter": {
+                  "recruiter": { "id": { "_eq": "X-Hasura-User-Id" } }
+                }
+              }
+            }
+          ],
+          "delete_permissions": [
+            {
+              "role": "recruiter",
+              "permission": {
+                "filter": {
+                  "recruiter": { "id": { "_eq": "X-Hasura-User-Id" } }
+                }
+              }
+            }
+          ],
+          "array_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "feed" },
+                  "insertion_order": null,
+                  "column_mapping": { "id": "ad_id" }
+                }
+              },
+              "name": "feeds"
+            },
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "ad_id",
+                  "table": { "schema": "public", "name": "matching" }
+                }
+              },
+              "name": "matching"
+            },
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "ad_status" },
+                  "insertion_order": null,
+                  "column_mapping": { "id": "ad_id" }
+                }
+              },
+              "name": "status"
+            }
+          ]
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": ["id", "status_date", "status_code", "ad_id"],
+                "filter": {
+                  "ad_stat": { "recruiter_id": { "_eq": "X-Hasura-User-Id" } }
+                }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "ad" },
+                  "insertion_order": null,
+                  "column_mapping": { "ad_id": "id" }
+                }
+              },
+              "name": "ad_stat"
+            },
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "dictionary" },
+                  "insertion_order": null,
+                  "column_mapping": { "status_code": "code" }
+                }
+              },
+              "name": "statuscode"
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "recruiter",
+              "permission": {
+                "backend_only": false,
+                "check": {
+                  "ad_stat": { "recruiter_id": { "_eq": "X-Hasura-User-Id" } }
+                },
+                "columns": ["id", "status_date", "status_code", "ad_id"]
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "ad_status" }
+        },
+        {
+          "table": { "schema": "public", "name": "auth_providers" },
+          "array_relationships": [
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "auth_provider",
+                  "table": { "schema": "public", "name": "user_providers" }
+                }
+              },
+              "name": "user_providers"
+            }
+          ]
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "id",
+                  "created_at",
+                  "social_data",
+                  "skills",
+                  "study_level",
+                  "work_years_number",
+                  "user_id",
+                  "title",
+                  "bio"
+                ],
+                "filter": { "user": { "id": { "_eq": "X-Hasura-User-Id" } } }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "columns": [
+                  "study_level",
+                  "id",
+                  "skills",
+                  "social_data",
+                  "user_id",
+                  "work_years_number"
+                ],
+                "filter": { "user": { "id": { "_eq": "X-Hasura-User-Id" } } }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": { "foreign_key_constraint_on": "study_level" },
+              "name": "dictionary"
+            },
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "users" },
+                  "insertion_order": null,
+                  "column_mapping": { "user_id": "id" }
+                }
+              },
+              "name": "user"
+            }
+          ],
+          "event_triggers": [
+            {
+              "definition": {
+                "enable_manual": false,
+                "insert": { "columns": "*" }
+              },
+              "name": "new_profile",
+              "retry_conf": {
+                "num_retries": 0,
+                "interval_sec": 10,
+                "timeout_sec": 60
+              },
+              "webhook": "http://68.183.67.65:5555/create_event"
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "backend_only": false,
+                "set": { "user_id": "x-hasura-User-Id" },
+                "check": { "user": { "id": { "_eq": "X-Hasura-User-Id" } } },
+                "columns": [
+                  "bio",
+                  "skills",
+                  "social_data",
+                  "study_level",
+                  "title",
+                  "user_id",
+                  "work_years_number"
+                ]
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "candidat_profile" },
+          "update_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "check": null,
+                "columns": [
+                  "bio",
+                  "created_at",
+                  "skills",
+                  "social_data",
+                  "study_level",
+                  "title",
+                  "work_years_number"
+                ],
+                "filter": { "user": { "id": { "_eq": "X-Hasura-User-Id" } } }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "check": null,
+                "columns": [
+                  "study_level",
+                  "skills",
+                  "social_data",
+                  "user_id",
+                  "work_years_number"
+                ],
+                "filter": { "user": { "id": { "_eq": "X-Hasura-User-Id" } } }
+              }
+            }
+          ]
+        },
+        {
+          "table": { "schema": "public", "name": "channel" },
+          "array_relationships": [
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "channel_id",
+                  "table": {
+                    "schema": "public",
+                    "name": "notification_template"
+                  }
+                }
+              },
+              "name": "notification_templates"
+            }
+          ]
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "id",
+                  "created_at",
+                  "like_id",
+                  "recuiter_id",
+                  "candidat_id"
+                ],
+                "filter": { "candidat_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": [
+                  "id",
+                  "created_at",
+                  "like_id",
+                  "recuiter_id",
+                  "candidat_id"
+                ],
+                "filter": { "recuiter_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "columns": [
+                  "id",
+                  "created_at",
+                  "like_id",
+                  "recuiter_id",
+                  "candidat_id"
+                ],
+                "filter": { "candidat_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "users" },
+                  "insertion_order": null,
+                  "column_mapping": { "candidat_id": "id" }
+                }
+              },
+              "name": "chat_candidat_id"
+            },
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "users" },
+                  "insertion_order": null,
+                  "column_mapping": { "recuiter_id": "id" }
+                }
+              },
+              "name": "chat_recuiter_id"
+            },
+            {
+              "using": { "foreign_key_constraint_on": "like_id" },
+              "name": "like"
+            }
+          ],
+          "table": { "schema": "public", "name": "chat" },
+          "array_relationships": [
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "chat_id",
+                  "table": { "schema": "public", "name": "message" }
+                }
+              },
+              "name": "messages"
+            }
+          ]
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "candidat_is_connected",
+                  "recuiter_is_connected",
+                  "id",
+                  "like_id",
+                  "count",
+                  "candidat_avatar",
+                  "recuiter_avatar",
+                  "candidat_displayname",
+                  "recuiter_displayname",
+                  "created_at",
+                  "candidat_id",
+                  "recuiter_id"
+                ],
+                "filter": { "candidat_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": [
+                  "id",
+                  "recuiter_id",
+                  "candidat_id",
+                  "like_id",
+                  "candidat_avatar",
+                  "candidat_is_connected",
+                  "candidat_displayname",
+                  "recuiter_avatar",
+                  "recuiter_is_connected",
+                  "recuiter_displayname",
+                  "count",
+                  "created_at"
+                ],
+                "filter": { "recuiter_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "chat_new_match" }
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "id",
+                  "recuiter_id",
+                  "candidat_id",
+                  "like_id",
+                  "content",
+                  "sender_id",
+                  "read_at",
+                  "created_at",
+                  "candidat_avatar",
+                  "candidat_is_connected",
+                  "candidat_displayname",
+                  "recuiter_avatar",
+                  "recuiter_is_connected",
+                  "recuiter_displayname"
+                ],
+                "filter": { "candidat_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": [
+                  "candidat_is_connected",
+                  "recuiter_is_connected",
+                  "id",
+                  "like_id",
+                  "candidat_avatar",
+                  "recuiter_avatar",
+                  "candidat_displayname",
+                  "content",
+                  "recuiter_displayname",
+                  "created_at",
+                  "read_at",
+                  "candidat_id",
+                  "recuiter_id",
+                  "sender_id"
+                ],
+                "filter": { "recuiter_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "chats_last_msg" }
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "connected",
+                  "id",
+                  "mac_address",
+                  "push_token",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": [
+                  "connected",
+                  "id",
+                  "mac_address",
+                  "push_token",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "users" },
+                  "insertion_order": null,
+                  "column_mapping": { "user_id": "id" }
+                }
+              },
+              "name": "user"
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "backend_only": false,
+                "set": { "user_id": "x-hasura-User-Id" },
+                "check": { "user_id": { "_eq": "X-Hasura-User-Id" } },
+                "columns": [
+                  "connected",
+                  "id",
+                  "mac_address",
+                  "push_token",
+                  "user_id"
+                ]
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "backend_only": false,
+                "set": { "user_id": "x-hasura-User-Id" },
+                "check": { "user_id": { "_eq": "X-Hasura-User-Id" } },
+                "columns": [
+                  "connected",
+                  "id",
+                  "mac_address",
+                  "push_token",
+                  "user_id"
+                ]
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "connexion" },
+          "update_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "check": null,
+                "columns": [
+                  "connected",
+                  "id",
+                  "mac_address",
+                  "push_token",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "check": null,
+                "columns": [
+                  "connected",
+                  "id",
+                  "mac_address",
+                  "push_token",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "delete_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ]
+        },
+        { "table": { "schema": "public", "name": "cron_log" } },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "code",
+                  "extra_data",
+                  "id",
+                  "language",
+                  "name",
+                  "type"
+                ],
+                "filter": {}
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": [
+                  "id",
+                  "name",
+                  "language",
+                  "extra_data",
+                  "type",
+                  "code"
+                ],
+                "filter": {}
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "columns": [
+                  "code",
+                  "extra_data",
+                  "id",
+                  "language",
+                  "name",
+                  "type"
+                ],
+                "filter": {}
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": { "foreign_key_constraint_on": "type" },
+              "name": "typeByType"
+            }
+          ],
+          "table": { "schema": "public", "name": "dictionary" },
+          "array_relationships": [
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "study_level",
+                  "table": { "schema": "public", "name": "candidat_profile" }
+                }
+              },
+              "name": "candidat_profiles"
+            },
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "dictionary_id",
+                  "table": { "schema": "public", "name": "dictionary_i18n" }
+                }
+              },
+              "name": "dictionary_i18ns"
+            }
+          ]
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": ["language", "label", "dictionary_id", "id"],
+                "filter": {}
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": ["language", "label", "dictionary_id", "id"],
+                "filter": {}
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "columns": ["dictionary_id", "id", "label", "language"],
+                "filter": {}
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": { "foreign_key_constraint_on": "dictionary_id" },
+              "name": "dictionary"
+            }
+          ],
+          "table": { "schema": "public", "name": "dictionary_i18n" }
+        },
+        {
+          "object_relationships": [
+            {
+              "using": { "foreign_key_constraint_on": "event_model_id" },
+              "name": "event_model"
+            }
+          ],
+          "table": { "schema": "public", "name": "event" }
+        },
+        {
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "event" },
+                  "insertion_order": null,
+                  "column_mapping": { "id": "event_model_id" }
+                }
+              },
+              "name": "event"
+            }
+          ],
+          "table": { "schema": "public", "name": "event_model" },
+          "array_relationships": [
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "event_model_id",
+                  "table": { "schema": "public", "name": "notification_model" }
+                }
+              },
+              "name": "notification_models"
+            }
+          ]
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "id",
+                  "profile_id",
+                  "ad_id",
+                  "recruiter_swiped_at",
+                  "is_recruiter_liked",
+                  "candidate_swiped_at",
+                  "is_candidate_liked",
+                  "ad_closed_at",
+                  "created_at",
+                  "updated_at"
+                ],
+                "filter": {
+                  "profile": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+                }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": [
+                  "is_candidate_liked",
+                  "is_recruiter_liked",
+                  "ad_id",
+                  "id",
+                  "profile_id",
+                  "ad_closed_at",
+                  "candidate_swiped_at",
+                  "created_at",
+                  "recruiter_swiped_at",
+                  "updated_at"
+                ],
+                "filter": {
+                  "ads": {
+                    "recruiter": { "id": { "_eq": "X-Hasura-User-Id" } }
+                  }
+                }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "ad" },
+                  "insertion_order": null,
+                  "column_mapping": { "ad_id": "id" }
+                }
+              },
+              "name": "ads"
+            },
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": {
+                    "schema": "public",
+                    "name": "candidat_profile"
+                  },
+                  "insertion_order": null,
+                  "column_mapping": { "profile_id": "id" }
+                }
+              },
+              "name": "profile"
+            }
+          ],
+          "table": { "schema": "public", "name": "feed" },
+          "update_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "check": {
+                  "profile": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+                },
+                "columns": [
+                  "ad_id",
+                  "candidate_swiped_at",
+                  "id",
+                  "is_candidate_liked"
+                ],
+                "filter": {
+                  "profile": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+                }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "check": {
+                  "ads": {
+                    "recruiter": { "id": { "_eq": "X-Hasura-User-Id" } }
+                  }
+                },
+                "columns": [
+                  "ad_closed_at",
+                  "ad_id",
+                  "id",
+                  "is_recruiter_liked",
+                  "recruiter_swiped_at"
+                ],
+                "filter": {
+                  "ads": {
+                    "recruiter": { "id": { "_eq": "X-Hasura-User-Id" } }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        { "table": { "schema": "public", "name": "feed_history" } },
+        {
+          "select_permissions": [
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": [
+                  "ad_id",
+                  "feed_id",
+                  "social_data",
+                  "candidat_id",
+                  "skills",
+                  "work_years_number",
+                  "title",
+                  "bio",
+                  "first_name",
+                  "last_name",
+                  "avatar_profile",
+                  "study_level",
+                  "id",
+                  "contract_types",
+                  "localizations",
+                  "languages",
+                  "user_id",
+                  "availability",
+                  "salary",
+                  "recruiter_id",
+                  "is_recruiter_liked",
+                  "is_candidate_liked"
+                ],
+                "filter": { "recruiter_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "list_candidat_like_ad" }
+        },
+        { "table": { "schema": "public", "name": "list_candidats" } },
+        { "table": { "schema": "public", "name": "localization" } },
+        {
+          "object_relationships": [
+            { "using": { "foreign_key_constraint_on": "ad_id" }, "name": "ad" },
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": {
+                    "schema": "public",
+                    "name": "candidat_profile"
+                  },
+                  "insertion_order": null,
+                  "column_mapping": { "profile_id": "id" }
+                }
+              },
+              "name": "profile"
+            }
+          ],
+          "event_triggers": [
+            {
+              "definition": {
+                "enable_manual": false,
+                "insert": { "columns": "*" }
+              },
+              "name": "new_like",
+              "retry_conf": {
+                "num_retries": 0,
+                "interval_sec": 10,
+                "timeout_sec": 60
+              },
+              "webhook": "http://68.183.67.65:5555/create_event"
+            }
+          ],
+          "table": { "schema": "public", "name": "matching" },
+          "array_relationships": [
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "like_id",
+                  "table": { "schema": "public", "name": "chat" }
+                }
+              },
+              "name": "chats"
+            }
+          ]
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "id",
+                  "chat_id",
+                  "created_at",
+                  "read_at",
+                  "content",
+                  "sender_id"
+                ],
+                "filter": {
+                  "chat": { "candidat_id": { "_eq": "X-Hasura-User-Id" } }
+                }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": [
+                  "id",
+                  "chat_id",
+                  "created_at",
+                  "read_at",
+                  "content",
+                  "sender_id"
+                ],
+                "filter": {
+                  "chat": { "recuiter_id": { "_eq": "X-Hasura-User-Id" } }
+                }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "columns": [
+                  "chat_id",
+                  "id",
+                  "content",
+                  "created_at",
+                  "read_at",
+                  "sender_id"
+                ],
+                "filter": {}
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "users" },
+                  "insertion_order": null,
+                  "column_mapping": { "sender_id": "id" }
+                }
+              },
+              "name": "Message"
+            },
+            {
+              "using": { "foreign_key_constraint_on": "chat_id" },
+              "name": "chat"
+            }
+          ],
+          "event_triggers": [
+            {
+              "definition": {
+                "enable_manual": false,
+                "insert": { "columns": "*" }
+              },
+              "name": "new_message",
+              "retry_conf": {
+                "num_retries": 0,
+                "interval_sec": 10,
+                "timeout_sec": 60
+              },
+              "webhook": "http://142.93.137.229:5502/send-push-notification/chat"
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "backend_only": false,
+                "set": { "sender_id": "x-hasura-User-Id" },
+                "check": {
+                  "chat": { "candidat_id": { "_eq": "X-Hasura-User-Id" } }
+                },
+                "columns": ["chat_id", "content", "created_at", "sender_id"]
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "backend_only": false,
+                "set": { "sender_id": "x-hasura-User-Id" },
+                "check": {
+                  "chat": { "recuiter_id": { "_eq": "X-Hasura-User-Id" } }
+                },
+                "columns": [
+                  "chat_id",
+                  "id",
+                  "content",
+                  "created_at",
+                  "read_at",
+                  "sender_id"
+                ]
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "set": { "sender_id": "x-hasura-User-Id" },
+                "check": {},
+                "columns": ["chat_id", "content", "created_at", "sender_id"]
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "message" },
+          "update_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "check": null,
+                "columns": ["read_at"],
+                "filter": {}
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "check": null,
+                "columns": ["read_at"],
+                "filter": {}
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "check": null,
+                "columns": ["id", "read_at"],
+                "filter": {}
+              }
+            }
+          ]
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": ["content", "created_at", "id", "user_id"],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": ["content", "created_at", "id", "user_id"],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "columns": ["id", "content", "user_id"],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "users" },
+                  "insertion_order": null,
+                  "column_mapping": { "user_id": "id" }
+                }
+              },
+              "name": "user"
+            }
+          ],
+          "event_triggers": [
+            {
+              "definition": {
+                "enable_manual": false,
+                "insert": { "columns": "*" }
+              },
+              "name": "new_notification",
+              "retry_conf": {
+                "num_retries": 0,
+                "interval_sec": 10,
+                "timeout_sec": 60
+              },
+              "webhook": "http://142.93.137.229:5502/send-push-notification/notification"
+            }
+          ],
+          "table": { "schema": "public", "name": "notification" }
+        },
+        {
+          "object_relationships": [
+            {
+              "using": { "foreign_key_constraint_on": "event_model_id" },
+              "name": "event_model"
+            },
+            {
+              "using": {
+                "foreign_key_constraint_on": "notification_template_id"
+              },
+              "name": "notification_template"
+            }
+          ],
+          "table": { "schema": "public", "name": "notification_model" }
+        },
+        {
+          "object_relationships": [
+            {
+              "using": { "foreign_key_constraint_on": "channel_id" },
+              "name": "channel"
+            }
+          ],
+          "table": { "schema": "public", "name": "notification_template" },
+          "array_relationships": [
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "notification_template_id",
+                  "table": { "schema": "public", "name": "notification_model" }
+                }
+              },
+              "name": "notification_models"
+            }
+          ]
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "availability",
+                  "contract_types",
+                  "id",
+                  "languages",
+                  "localizations",
+                  "salary",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "columns": [
+                  "availability",
+                  "contract_types",
+                  "id",
+                  "languages",
+                  "localizations",
+                  "salary",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "users" },
+                  "insertion_order": null,
+                  "column_mapping": { "user_id": "id" }
+                }
+              },
+              "name": "user"
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "backend_only": false,
+                "set": { "user_id": "x-hasura-User-Id" },
+                "check": { "user_id": { "_eq": "X-Hasura-User-Id" } },
+                "columns": [
+                  "availability",
+                  "contract_types",
+                  "id",
+                  "languages",
+                  "localizations",
+                  "salary",
+                  "user_id"
+                ]
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "preference" },
+          "update_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "check": null,
+                "columns": [
+                  "availability",
+                  "contract_types",
+                  "languages",
+                  "localizations",
+                  "salary"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "check": null,
+                "columns": [
+                  "availability",
+                  "id",
+                  "contract_types",
+                  "languages",
+                  "localizations",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ]
+        },
+        {
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "ad" },
+                  "insertion_order": null,
+                  "column_mapping": { "ad_id": "id" }
+                }
+              },
+              "name": "ad"
+            },
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": {
+                    "schema": "public",
+                    "name": "candidat_profile"
+                  },
+                  "insertion_order": null,
+                  "column_mapping": { "profile_id": "id" }
+                }
+              },
+              "name": "profile"
+            }
+          ],
+          "table": { "schema": "public", "name": "rating" }
+        },
+        { "table": { "schema": "public", "name": "rating_config" } },
+        {
+          "select_permissions": [
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": [
+                  "id",
+                  "created_at",
+                  "updated_at",
+                  "user_id",
+                  "company_name",
+                  "expertises",
+                  "title"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "users" },
+                  "insertion_order": null,
+                  "column_mapping": { "user_id": "id" }
+                }
+              },
+              "name": "user"
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "recruiter",
+              "permission": {
+                "backend_only": false,
+                "set": { "user_id": "x-hasura-User-Id" },
+                "check": { "user_id": { "_eq": "X-Hasura-User-Id" } },
+                "columns": [
+                  "company_name",
+                  "expertises",
+                  "id",
+                  "title",
+                  "user_id"
+                ]
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "recruiter_profile" },
+          "update_permissions": [
+            {
+              "role": "recruiter",
+              "permission": {
+                "check": null,
+                "columns": [
+                  "id",
+                  "expertises",
+                  "company_name",
+                  "title",
+                  "created_at",
+                  "updated_at",
+                  "user_id"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ]
+        },
+        {
+          "object_relationships": [
+            {
+              "using": { "foreign_key_constraint_on": "user_id" },
+              "name": "user"
+            }
+          ],
+          "table": { "schema": "public", "name": "refresh_tokens" }
+        },
+        {
+          "table": { "schema": "public", "name": "role" },
+          "array_relationships": [
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "role",
+                  "table": { "schema": "public", "name": "user_roles" }
+                }
+              },
+              "name": "user_roles"
+            },
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "default_role",
+                  "table": { "schema": "public", "name": "users" }
+                }
+              },
+              "name": "users"
+            }
+          ]
+        },
+        {
+          "table": { "schema": "public", "name": "type" },
+          "array_relationships": [
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "type",
+                  "table": { "schema": "public", "name": "dictionary" }
+                }
+              },
+              "name": "dictionaries"
+            }
+          ]
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "created_at",
+                  "email",
+                  "id",
+                  "password",
+                  "register_data",
+                  "updated_at",
+                  "user_id",
+                  "username"
+                ],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "columns": [
+                  "created_at",
+                  "email",
+                  "id",
+                  "register_data",
+                  "updated_at",
+                  "user_id",
+                  "username"
+                ],
+                "filter": {
+                  "_or": [{ "user": { "id": { "_eq": "X-Hasura-User-Id" } } }]
+                }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": { "foreign_key_constraint_on": "user_id" },
+              "name": "user"
+            }
+          ],
+          "table": { "schema": "public", "name": "user_accounts" },
+          "update_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "check": null,
+                "columns": ["email", "password", "register_data", "updated_at"],
+                "filter": { "user": { "id": { "_eq": "X-Hasura-User-Id" } } }
+              }
+            }
+          ]
+        },
+        {
+          "object_relationships": [
+            {
+              "using": { "foreign_key_constraint_on": "auth_provider" },
+              "name": "authProviderByAuthProvider"
+            },
+            {
+              "using": { "foreign_key_constraint_on": "user_id" },
+              "name": "user"
+            }
+          ],
+          "table": { "schema": "public", "name": "user_providers" }
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": ["id", "role", "user_id"],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": ["id", "created_at", "user_id", "role"],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "columns": ["role"],
+                "filter": { "user_id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": { "foreign_key_constraint_on": "role" },
+              "name": "roleByRole"
+            },
+            {
+              "using": { "foreign_key_constraint_on": "user_id" },
+              "name": "user"
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "set": { "user_id": "X-Hasura-User-Id" },
+                "check": { "user_id": { "_eq": "X-Hasura-User-Id" } },
+                "columns": ["role"]
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "user_roles" }
+        },
+        {
+          "select_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "columns": [
+                  "active",
+                  "avatar_profile",
+                  "code_token_activate_account",
+                  "code_token_forgot_psw",
+                  "code_token_forgot_psw_expires_at",
+                  "created_at",
+                  "default_role",
+                  "display_name",
+                  "email",
+                  "first_name",
+                  "gender",
+                  "id",
+                  "is_connected",
+                  "last_name",
+                  "last_seen",
+                  "phone",
+                  "secret_token",
+                  "secret_token_expires_at",
+                  "updated_at"
+                ],
+                "filter": { "id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "columns": [
+                  "id",
+                  "created_at",
+                  "updated_at",
+                  "display_name",
+                  "active",
+                  "default_role",
+                  "email",
+                  "secret_token",
+                  "secret_token_expires_at",
+                  "avatar_profile",
+                  "code_token_forgot_psw_expires_at",
+                  "code_token_activate_account",
+                  "first_name",
+                  "last_name",
+                  "phone",
+                  "gender",
+                  "code_token_forgot_psw",
+                  "is_connected",
+                  "last_seen"
+                ],
+                "filter": { "id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "columns": [
+                  "active",
+                  "avatar_profile",
+                  "created_at",
+                  "default_role",
+                  "display_name",
+                  "email",
+                  "first_name",
+                  "gender",
+                  "id",
+                  "last_name",
+                  "phone",
+                  "secret_token",
+                  "updated_at"
+                ],
+                "filter": { "id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": {
+                    "schema": "public",
+                    "name": "candidat_profile"
+                  },
+                  "insertion_order": null,
+                  "column_mapping": { "id": "user_id" }
+                }
+              },
+              "name": "candidat"
+            },
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "preference" },
+                  "insertion_order": null,
+                  "column_mapping": { "id": "user_id" }
+                }
+              },
+              "name": "preference"
+            },
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": { "schema": "public", "name": "ad" },
+                  "insertion_order": null,
+                  "column_mapping": { "id": "recruiter_id" }
+                }
+              },
+              "name": "recruiter"
+            },
+            {
+              "using": { "foreign_key_constraint_on": "default_role" },
+              "name": "role"
+            }
+          ],
+          "event_triggers": [
+            {
+              "definition": {
+                "enable_manual": false,
+                "insert": { "columns": "*" }
+              },
+              "name": "new_user",
+              "retry_conf": {
+                "num_retries": 0,
+                "interval_sec": 10,
+                "timeout_sec": 60
+              },
+              "webhook": "http://68.183.67.65:5555/create_event "
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "recruiter",
+              "permission": {
+                "backend_only": false,
+                "check": { "id": { "_eq": "X-Hasura-User-Id" } },
+                "columns": [
+                  "active",
+                  "avatar_profile",
+                  "code_token_activate_account",
+                  "code_token_forgot_psw",
+                  "code_token_forgot_psw_expires_at",
+                  "default_role",
+                  "display_name",
+                  "email",
+                  "first_name",
+                  "gender",
+                  "is_connected",
+                  "last_name",
+                  "last_seen",
+                  "phone"
+                ]
+              }
+            }
+          ],
+          "table": { "schema": "public", "name": "users" },
+          "update_permissions": [
+            {
+              "role": "candidat",
+              "permission": {
+                "check": null,
+                "columns": [
+                  "avatar_profile",
+                  "display_name",
+                  "first_name",
+                  "gender",
+                  "last_name",
+                  "phone",
+                  "secret_token_expires_at"
+                ],
+                "filter": { "id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "recruiter",
+              "permission": {
+                "check": null,
+                "columns": [
+                  "avatar_profile",
+                  "first_name",
+                  "gender",
+                  "last_name",
+                  "secret_token_expires_at"
+                ],
+                "filter": { "id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            },
+            {
+              "role": "user",
+              "permission": {
+                "check": null,
+                "columns": [
+                  "avatar_profile",
+                  "display_name",
+                  "first_name",
+                  "gender",
+                  "last_name",
+                  "phone"
+                ],
+                "filter": { "id": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "array_relationships": [
+            {
+              "using": {
+                "manual_configuration": {
+                  "remote_table": {
+                    "schema": "public",
+                    "name": "account_setting"
+                  },
+                  "insertion_order": null,
+                  "column_mapping": { "id": "user_id" }
+                }
+              },
+              "name": "account_setting"
+            },
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "user_id",
+                  "table": { "schema": "public", "name": "refresh_tokens" }
+                }
+              },
+              "name": "refresh_tokens"
+            },
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "user_id",
+                  "table": { "schema": "public", "name": "user_accounts" }
+                }
+              },
+              "name": "user_accounts"
+            },
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "user_id",
+                  "table": { "schema": "public", "name": "user_providers" }
+                }
+              },
+              "name": "user_providers"
+            },
+            {
+              "using": {
+                "foreign_key_constraint_on": {
+                  "column": "user_id",
+                  "table": { "schema": "public", "name": "user_roles" }
+                }
+              },
+              "name": "user_roles"
+            }
+          ]
+        }
+      ],
+      "configuration": {
+        "connection_info": {
+          "database_url": { "from_env": "HASURA_GRAPHQL_DATABASE_URL" },
+          "pool_settings": {
+            "retries": 1,
+            "idle_timeout": 180,
+            "max_connections": 50
+          }
+        }
+      }
+    }
+  ],
+  "version": 3
+}
